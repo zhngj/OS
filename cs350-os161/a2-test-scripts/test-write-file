@@ -1,0 +1,5 @@
+#!/bin/csh
+
+# Works
+sys161 kernel "p testbin/bigfile bigfile.out 100;q"
+sys161 kernel "p testbin/bigfile bigfile.out 10240;q"

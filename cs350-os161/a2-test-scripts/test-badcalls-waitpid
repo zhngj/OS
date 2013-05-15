@@ -1,0 +1,11 @@
+#!/bin/csh
+
+source ./a2-setup
+
+if ($have_lseek) then
+  # Ignore messages about syscall 17 not implemented.
+  echo "Ignore messages: Unknown syscall 17"
+  sys161 kernel "p testbin/badcall b;q"
+else
+  echo "This test is skipped because it requires lseek"
+endif

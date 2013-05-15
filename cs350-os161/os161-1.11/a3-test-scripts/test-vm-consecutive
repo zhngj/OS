@@ -1,0 +1,11 @@
+#!/bin/csh
+
+echo "Test vm-consecutive"
+./test-vm-consecutive-small-01
+echo "-----------"
+./test-vm-consecutive-big-01
+echo "-----------"
+./test-vm-consecutive-big-02
+echo "-----------"
+./test-vm-consecutive-big-03
+echo "-----------------------------------------"

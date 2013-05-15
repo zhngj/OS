@@ -1,0 +1,25 @@
+#!/bin/csh
+
+set config = "-c sys161-8MB.conf"
+set run = "sys161 $config kernel" 
+
+# Multiple processes
+# Requires quite a bit of memory
+# Forces lots of tlb faults.
+
+$run "p testbin/parallelvm;q"
+echo "-----------"
+
+$run "p testbin/triplesort;q"
+echo "-----------"
+
+$run "p testbin/triplemat;q"
+echo "-----------"
+
+# Multiple processes
+# Declares an array of 512 x 4092 ints but then only
+# touches 512 pages (2 MB) for each of 3 processes = 6 MB
+# Forces lots of tlb faults.
+$run "p testbin/triplehuge;q"
+echo "-----------"
+

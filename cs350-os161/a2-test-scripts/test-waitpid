@@ -1,0 +1,7 @@
+#!/bin/csh
+
+# Runs with 2-3 MB of memory but not default memory
+sys161 kernel "p testbin/sty;q"
+sys161 kernel "p testbin/sty;q"
+sys161 kernel "p testbin/sty;q"
+

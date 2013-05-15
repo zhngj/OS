@@ -1,0 +1,8 @@
+#!/bin/csh
+
+# Single process
+# Requires quite a bit of memory
+# Forces lots of tlb faults.
+sys161 kernel "p testbin/sort;q"
+
+

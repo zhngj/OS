@@ -1,0 +1,8 @@
+#!/bin/csh
+
+# Multiple processes
+# A fair bit of memory
+# Forces lots of tlb faults.
+sys161 kernel "p testbin/triplemat;q"
+
+

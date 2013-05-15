@@ -1,0 +1,12 @@
+#!/bin/csh
+
+# test-args
+# runprogram needs to support arguments
+sys161 kernel "p testbin/argtest 2 4;q"
+sys161 kernel "p testbin/argtest one two three four five;q"
+
+# Needs to have runprogram support arguments
+sys161 kernel "p testbin/add 2 4;q"
+sys161 kernel "p testbin/add 4 4;q"
+sys161 kernel "p testbin/add 10000 20000;q"
+

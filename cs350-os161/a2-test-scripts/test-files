@@ -1,0 +1,8 @@
+#!/bin/csh
+
+# Requires, open, close, read, write, exit
+# test-files
+sys161 kernel "p uw-testbin/files1;q"
+sys161 kernel "p uw-testbin/files2;q"
+sys161 kernel "p uw-testbin/writeread;q"
+

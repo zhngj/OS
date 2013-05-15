@@ -1,0 +1,10 @@
+#!/bin/csh
+./run-batch-A3 |& tee out.A3
+echo "========================================================="
+./run-batch-A3-option1 |& tee out.A3-option1
+echo "========================================================="
+# Not used in F10 either.
+# Won't work for W10 because open, close, lseek aren't implemented
+# ./run-batch-A3-option2 |& tee out.A3-option2
+#echo "========================================================="
+

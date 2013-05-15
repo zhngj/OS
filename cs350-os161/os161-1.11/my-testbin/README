@@ -1,0 +1,23 @@
+My-Testbin Documentation
+
+The my-testbin folder is designed to be recompiled with the remainder of the testcases. 
+Whenever make <depend|clean|vclean|all> is executed at $OS161TOP (../) my-testbin will be recompiled.
+
+The compilation process iterates over all subdirectories of my-testbin, compiling and linking the code within them.
+The final executable will have the name of the directory. 
+Thus, every testcase is uniquly identified by the folder name.
+
+HOWTOs:
+
+Create a new Testcase:
+
+* Create a new folder in OS161TOP/my-testbin
+* Add the .c and .h source to the directory
+* Ensure that the directory is self contained, I haven't tested linkage against sources outside of newly created dir
+* Go to OS161TOP or OS161TOP/my-testbin and execute `make`
+* Finally run `make install` to copy the binaries to root/
+
+Running new testcases:
+
+* The new testcases will be installed in root/my-testbin
+* run them with "p my-testbin/<testname>"

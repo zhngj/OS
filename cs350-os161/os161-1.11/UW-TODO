@@ -1,0 +1,9 @@
+
+----------------------------------------------------------------------
+In kern/test/synchtest.c
+There are a number of locks, semaphores, etc.
+that are created but never destroyed.
+
+This came up as an issue in a F11.
+----------------------------------------------------------------------
+

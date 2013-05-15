@@ -1,0 +1,23 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Single process
+# Each time we use a relatively small amount of memory.
+# This requires a reasonably large SWAPFILE (9 MB should do it).
+
+# Do this with a smaller amount of memory
+echo "-----------------------------------------"
+sys161 -c sys161-2MB.conf kernel "p $uwbin/vm-mix1;q"
+echo "-----------------------------------------"
+sys161 -c sys161-2MB.conf kernel "p $uwbin/vm-mix2;q"
+echo "-----------------------------------------"
+sys161 -c sys161-2MB.conf kernel "p testbin/sort;q"
+echo "-----------"
+sys161 -c sys161-2MB.conf kernel "p testbin/matmult;q"
+echo "-----------"
+sys161 -c sys161-2MB.conf kernel "p testbin/huge;q"
+echo "-----------"
+# Test consecutive runs without shutting down.
+sys161 -c sys161-2MB.conf kernel "p $uwbin/vm-mix1; p $uwbin/vm-mix1; p $uwbin/vm-mix1; q"
+echo "-----------"

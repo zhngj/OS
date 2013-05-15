@@ -1,0 +1,7 @@
+#!/bin/csh
+
+# Strips out a bunch of the sys161 and OS/161 output
+# that makes it harder to find the desired output.
+
+egrep -v "^sys161: System/161|OS/161 base system|Copyright \(c\) 2000|President and Fellows|Cpu is MIPS r2000/r3000|physical memory available|^Device probe\.\.\.|^lamebus0 \(system main bus\)|^emu0 at lamebus0|^ltrace0 at lamebus0|^ltimer0 at lamebus0|^hardclock on ltimer0 \(100 hz\)|^beep0 at ltimer0|^rtclock0 at ltimer0|^lrandom0 at lamebus0|^random0 at lrandom0|^lhd0 at lamebus0|^lhd1 at lamebus0|^lser0 at lamebus0|^con0 at lser0|^pseudorand0 \(virtual\)"
+

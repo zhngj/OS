@@ -1,0 +1,4 @@
+# Variable used by other scripts.
+
+# Will lseek be implemented
+set have_lseek = 0

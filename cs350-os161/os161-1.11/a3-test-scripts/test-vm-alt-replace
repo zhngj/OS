@@ -1,0 +1,17 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Single process
+echo "-----------"
+sys161 kernel "p $uwbin/vm-data1; q"
+echo "-----------"
+echo "Using alternative TLB replacement algorithm"
+sys161 kernel "tlbalg; p $uwbin/vm-data1; q"
+echo "-----------"
+sys161 kernel "p $uwbin/vm-data2; q"
+echo "-----------"
+echo "Using alternative TLB replacement algorithm"
+sys161 kernel "tlbalg; p $uwbin/vm-data2; q"
+
+

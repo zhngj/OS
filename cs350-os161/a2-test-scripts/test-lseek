@@ -1,0 +1,16 @@
+#!/bin/csh
+
+source ./a2-setup
+
+if ($have_lseek) then
+  echo "abcdefghijklmnopqrstuvwzyz" > tailfile
+  sys161 kernel "p testbin/tail tailfile 0;q"
+  sys161 kernel "p testbin/tail tailfile 1;q"
+  sys161 kernel "p testbin/tail tailfile 2;q"
+  sys161 kernel "p testbin/tail tailfile 24;q"
+  sys161 kernel "p testbin/tail tailfile 25;q"
+  sys161 kernel "p testbin/tail tailfile 26;q"
+else
+  echo "This test is skipped because it requires lseek"
+endif
+

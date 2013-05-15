@@ -1,0 +1,24 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+set config = "-c sys161-8MB.conf"
+set run = "sys161 $config kernel" 
+
+# This requires at least argc to be set to a
+# value not equal to 2 so we don't use it.
+# ./test-vm-ctest
+#
+# ./test-vm-sort
+echo "-----------"
+$run "p testbin/sort;q"
+echo "-----------"
+# ./test-vm-matmult
+$run "p testbin/matmult;q"
+echo "-----------"
+# ./test-vm-huge
+$run "p testbin/huge;q"
+echo "-----------"
+$run "p $uwbin/vm-data3;q"
+echo "-----------"
+$run "p $uwbin/vm-crash3;q"
+echo "-----------------------------------------"

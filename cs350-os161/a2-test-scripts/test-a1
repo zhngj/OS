@@ -1,0 +1,14 @@
+#!/bin/csh
+
+sys161 kernel "sy1;q"
+sys161 kernel "sy1;q"
+sys161 kernel "sy1;q"
+
+sys161 kernel "sy2;q"
+sys161 kernel "sy2;q"
+sys161 kernel "sy2;q"
+
+sys161 kernel "sy3;q"
+sys161 kernel "sy3;q"
+sys161 kernel "sy3;q"
+

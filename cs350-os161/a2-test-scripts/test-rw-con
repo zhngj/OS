@@ -1,0 +1,17 @@
+#!/bin/csh
+
+# Works
+# Need to run interactively
+sys161 kernel "p testbin/conman;q"
+
+# Works after fixing EOF problem with sys_read
+# Needs interactive input
+sys161 kernel "p testbin/sink;q"
+
+# Can only test this interactively
+sys161 kernel "p testbin/tictac;q"
+
+# This uses testbin/sink which asks for console input
+# Works
+sys161 kernel "p testbin/kitchen;q"
+

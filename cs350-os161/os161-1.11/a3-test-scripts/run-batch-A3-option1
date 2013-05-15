@@ -1,0 +1,37 @@
+#!/bin/csh
+
+set usage = "Usage: $0"
+set version = "Version 1.0"
+
+# In batch mode run a bunch of tests and strip
+# off a bunch of the sys161 and OS/161 output
+# that isn't relevant and makes it harder to find
+# the desired output.
+
+# This is a list of the test programs to run.
+# The vm-big-fork-exec-paging test is more rigorous but we'll leave it off for this term (F10)
+# set list = (vm-big-fork vm-big-fork-exec vm-big-fork-paging vm-big-fork-exec-paging)
+
+# This set of programs requires at least fork, waitpid, exit and execv to be working.
+# The first set of test (without paging in the name) should we run using
+# enough memory that no paging is required. The last test should require paging.
+set list = (vm-big-fork vm-big-fork-exec vm-big-fork-paging)
+
+set STRIP = ./strip-text
+
+echo "RUNNING $0 : $version"
+
+if ($#argv != 0) then
+    echo "$usage"
+    exit 1
+endif
+
+foreach i ($list) 
+  echo "---------------------------------------------------------------"
+  echo "***************  RUNNING [test-$i] TESTS  ******************"
+  ./test-$i |& $STRIP
+  echo ""
+end
+
+exit 0
+

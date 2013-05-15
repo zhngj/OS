@@ -1,0 +1,7 @@
+#!/bin/csh
+
+# Works
+sys161 kernel "p testbin/badcall c;q"
+sys161 kernel "p testbin/badcall f;q"
+# echo "No tests for just open and close"
+

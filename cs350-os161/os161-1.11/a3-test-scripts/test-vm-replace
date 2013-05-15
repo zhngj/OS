@@ -1,0 +1,11 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Single process
+sys161 -c sys161-8MB.conf kernel "p $uwbin/vm-data1;q"
+echo "-----------"
+sys161 -c sys161-9MB.conf kernel "p $uwbin/vm-data2;q"
+echo "-----------"
+
+

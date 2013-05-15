@@ -1,0 +1,30 @@
+#!/bin/csh
+
+echo "This runs in an infinite loop."
+echo "You may see kernel messages but hopefully the kernel doesn't crash."
+echo "Starting test in 5 seconds."
+sleep 5
+sys161 kernel "p testbin/forkbomb"
+
+# Tests lots of limits (a more rigourous test)
+# Seems to work.
+#
+# Infinite loop - need to run separately.
+
+# echo "Running kernel in the background"
+# sys161 kernel "p testbin/forkbomb" >& out &
+# sleep 3
+# echo "Waiting for 15 seconds before killing"
+# sleep 15
+# pkill sys161
+# 
+# echo "Trying test again"
+# sleep 3
+# 
+# echo "Running kernel in the background"
+# sys161 kernel "p testbin/forkbomb" &
+# sleep 3
+# echo "Waiting for 15 seconds before killing"
+# sleep 15
+# pkill sys161
+

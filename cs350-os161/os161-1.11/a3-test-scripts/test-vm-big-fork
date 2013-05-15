@@ -1,0 +1,14 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+set pgm = $uwbin/vm-mix1-fork
+set config = "-c sys161-9MB.conf"
+set run = "sys161 $config kernel" 
+
+$run "p $pgm;q"
+echo "-----------"
+echo ""
+$run "p $pgm; p $pgm; p $pgm ;q"
+echo "-----------"
+
+

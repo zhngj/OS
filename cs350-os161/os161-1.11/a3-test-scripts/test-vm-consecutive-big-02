@@ -1,0 +1,8 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Run the same program consecutive times. Should run properly each time.
+# Requires quite a bit of memory
+# Forces lots of tlb faults.
+sys161 -c sys161-8MB.conf kernel "p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-data3; p $uwbin/vm-stack1; p $uwbin/vm-stack2; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-crash1; p $uwbin/vm-crash2; p $uwbin/vm-crash3; q"

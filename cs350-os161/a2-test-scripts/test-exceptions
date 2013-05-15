@@ -1,0 +1,21 @@
+#!/bin/csh
+
+# The full list of tests.
+# set cmds = (a b c d e f g h i j k l m n o)
+# Our list leaves out f.
+# 'f' tests if the kernel protects writing to the code segment
+#     and this isn't done until assigment 3
+# TBB: Winter 2012
+# We also now leave out o
+# 'o' tests infinite recursion and is mean to grow the stack
+#     until it is outside of the address space at which point
+#     the program should crash (but the new compiler optimizes
+#     out the recursion so we just have an infinite loop.
+set cmds = (a b c d e g h i j k l m n)
+foreach i ($cmds)
+  echo ""
+  echo "running crash running crash with option = $i"
+#  sleep 3
+  sys161 kernel "p testbin/crash $i;q"
+end
+

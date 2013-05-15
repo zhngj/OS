@@ -1,0 +1,9 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Try writing to write protected page
+sys161 -c sys161-8MB.conf kernel "p $uwbin/vm-crash1;q"
+echo "-----------------------------------------"
+sys161 -c sys161-8MB.conf kernel "p $uwbin/vm-crash2;q"
+echo "-----------------------------------------"

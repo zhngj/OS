@@ -1,0 +1,106 @@
+Tim Brecht
+Created: Fri Mar 26 19:42:24 EDT 2010
+Updated: Tue Nov 23 21:34:44 EST 2010
+
+Some of these tests can take a while to run
+and because data gets buffered it may look
+like they have appeared to stop when they
+may still be running.
+
+NOTE: These scripts use the csh.
+NOTE: They require the PATH in your .cshrc
+NOTE: to be set correctly so that commands like
+NOTE: sys161 will be found.
+
+ALSO NOTE: There are more tests in this directory than will be run
+           and they may not run properly without creating and/or fiddling with 
+           sys161.conf and the size of the SWAPFILE.
+
+Fall 2010 Notes: It is probably a good idea to use a 9 MB swapfile.
+
+There are 3 main high level sets of tests to run.
+
+Each of these calls separate tests.
+See the source for each of the high-level tests
+to see how the sub-scripts are called.
+
+run-batch-A3
+   - Runs a bunch of tests in batch mode.
+   - Probably best to run as:
+     ./run-batch-A3 |& tee out.A3
+   - These tests are the the non optional tests.
+   - Some tests write to read-only pages.
+   - Except for test-vm-consecutive, they require only very 
+     simple write to console and exit (which can halt).
+     test-vm-consecutive requires runprogram to return back
+     to the menu after the program has exited.
+   - These scripts call some of the new test programs for this
+     assignment.
+
+run-batch-A3-option1
+   - Runs some optional tests that require more system calls
+     to work. Mostly fork/waitpid/exit/execv.
+   - Run as:
+    ./run-batch-A3-option1 |& tee out.A3-option1
+
+# Not used in W10/F10 because open, close and lseek aren't implemented
+# run-batch-A3-option2
+#    - Runs the full suite of A2 tests.
+#    - Run as:
+#     ./run-batch-A3-option1 |& tee out.A3-option2
+# Note: that you can try using the A3 kernel with the a2 testing scripts
+#       but we aren't going to worry about provide a separate set of tests for this.
+
+run-batch-A3-all
+   - Just a handy way to run the first two of the above
+     Puts output into
+     out.A3, out.A3-option1
+
+For info about A2 tests. See the README from a2-test-scripts.
+
+-------
+New tests for this assignment:
+
+vm-crash1 - each of these eventually
+vm-crash2   writes to read-only pages
+vm-crash3   and should crash the user program (not the kernel)
+
+vm-data1  - each of these writes primarily (not exclusively)
+vm-data2    to data pages
+vm-data3
+
+vm-stack1 - each of these writes primarily (not exclusively)
+vm-stack2   to stack pages
+
+vm-mix1       -  these tests touch pages in each of the different segments
+vm-mix2       -  this one uses a bit more locality.
+vm-mix1-fork  -  similar to vm-mix1 but two processes executing simultaneously
+-------
+
+# We assume your directory structure is as follows
+# $HOME/cs350-os161
+# $HOME/cs350-os161/os161-1.11
+# $HOME/cs350-os161/root
+#
+# And that kernel-ASST2 is compiled and installed in
+# $HOME/cs350-os161/root
+
+cd $HOME/cs350-os161/os161-1.11
+
+# This creates the directory a3-test-script and its contents.
+~cs350/bin/tar -xzf ~cs350/pub/os161_repository/a3-test-scripts.tar.gz
+
+cd $HOME/cs350-os161
+ln -s os161-1.11/a3-test-scripts .
+
+cd a3-test-scripts
+
+# This will build and install some new programs into
+# the directory newtests and create some symbolic links
+# to the kernel-ASST3 in the root directory and to
+# testbin and bin in that directory.
+# Note: that compilation of some of the new test programs
+# can take a bit of time.
+
+make
+

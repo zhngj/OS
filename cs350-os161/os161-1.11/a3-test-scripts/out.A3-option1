@@ -1,0 +1,121 @@
+RUNNING ./run-batch-A3-option1 : Version 1.0
+---------------------------------------------------------------
+***************  RUNNING [test-vm-big-fork] TESTS  ******************
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p uw-testbin/vm-mix1-fork
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread uw-testbin/vm-mix1-fork
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 15585937 cycles (10277187 run, 5308750 global-idle)
+sys161:   cpu0: 10277168 kern, 19 user, 0 idle)
+sys161: 688 irqs 146 exns 0r/0w disk 0r/780w console 38r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.621954 seconds (25.0596 mhz)
+sys161: Elapsed virtual time: 0.623437497 seconds (25 mhz)
+-----------
+
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p uw-testbin/vm-mix1-fork
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread uw-testbin/vm-mix1-fork
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 15584348 cycles (10258929 run, 5325419 global-idle)
+sys161:   cpu0: 10258910 kern, 19 user, 0 idle)
+sys161: 682 irqs 150 exns 0r/0w disk 0r/780w console 38r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.617891 seconds (25.2218 mhz)
+sys161: Elapsed virtual time: 0.623373937 seconds (25 mhz)
+-----------
+
+---------------------------------------------------------------
+***************  RUNNING [test-vm-big-fork-exec] TESTS  ******************
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p testbin/parallelvm
+Job size approximately 58800 bytes
+Forking 24 jobs; total load 1378k
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread testbin/parallelvm
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 4890119 cycles (3341439 run, 1548680 global-idle)
+sys161:   cpu0: 3335080 kern, 6359 user, 0 idle)
+sys161: 681 irqs 90 exns 0r/0w disk 0r/841w console 8r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.199303 seconds (24.5361 mhz)
+sys161: Elapsed virtual time: 0.195604777 seconds (25 mhz)
+-----------
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p testbin/triplesort
+testbin/triplesort: Starting: running three copies of /testbin/sort...
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread testbin/triplesort
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 4782036 cycles (3218859 run, 1563177 global-idle)
+sys161:   cpu0: 3216485 kern, 2374 user, 0 idle)
+sys161: 680 irqs 61 exns 0r/0w disk 0r/842w console 8r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.193126 seconds (24.7612 mhz)
+sys161: Elapsed virtual time: 0.191281457 seconds (25 mhz)
+-----------
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p testbin/triplemat
+testbin/triplemat: Starting: running three copies of /testbin/matmult...
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread testbin/triplemat
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 4781824 cycles (3224617 run, 1557207 global-idle)
+sys161:   cpu0: 3222219 kern, 2398 user, 0 idle)
+sys161: 682 irqs 61 exns 0r/0w disk 0r/842w console 8r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.193800 seconds (24.674 mhz)
+sys161: Elapsed virtual time: 0.191272977 seconds (25 mhz)
+-----------
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p testbin/triplehuge
+testbin/triplehuge: Starting: running three copies of /testbin/huge...
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread testbin/triplehuge
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 4769666 cycles (3194488 run, 1575178 global-idle)
+sys161:   cpu0: 3192116 kern, 2372 user, 0 idle)
+sys161: 681 irqs 58 exns 0r/0w disk 0r/842w console 8r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.193278 seconds (24.6777 mhz)
+sys161: Elapsed virtual time: 0.190786657 seconds (25 mhz)
+-----------
+
+---------------------------------------------------------------
+***************  RUNNING [test-vm-big-fork-paging] TESTS  ******************
+
+
+Put-your-group-name-here's system version 0 (ASST3 #193)
+
+
+OS/161 kernel: p uw-testbin/vm-mix1-fork
+sleep: Dropping thread <boot/menu>
+sleep: Dropping thread uw-testbin/vm-mix1-fork
+panic: Assertion failed: curthread->t_vmspace != NULL, at ../../arch/mips/mips/syscall.c:168 (md_forkentry)
+sys161: 15508487 cycles (10209875 run, 5298612 global-idle)
+sys161:   cpu0: 10209856 kern, 19 user, 0 idle)
+sys161: 684 irqs 153 exns 0r/0w disk 0r/780w console 38r/1w/4m emufs 0r/0w net
+sys161: Elapsed real time: 0.614783 seconds (25.226 mhz)
+sys161: Elapsed virtual time: 0.620339497 seconds (25 mhz)
+-----------
+

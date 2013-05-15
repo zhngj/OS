@@ -1,0 +1,5 @@
+#!/bin/csh
+
+# Ignore messages about syscall 17 not implemented.
+echo "Ignore messages: Unknown syscall 17"
+sys161 kernel "p testbin/badcall e;q"

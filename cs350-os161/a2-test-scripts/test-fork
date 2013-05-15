@@ -1,0 +1,8 @@
+#!/bin/csh
+
+# test-fork
+# Works - with 2-3 MB of memory
+sys161 kernel "p testbin/forktest;q"
+sys161 kernel "p testbin/forktest;q"
+sys161 kernel "p testbin/forktest;q"
+sys161 kernel "p testbin/forktest;q"

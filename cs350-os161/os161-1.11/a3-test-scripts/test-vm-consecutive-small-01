@@ -1,0 +1,10 @@
+#!/bin/csh
+
+set uwbin = uw-testbin
+
+# Run the vm-data1 program over and over again (12 times). 
+# This should run successfully 12 times and shouldn't run out of memory.
+# Each run touches 512 MB of data. So in all they shouldn't be able
+# to run unless pages get cleaned up when programs finish. 
+#
+sys161 -c sys161-2MB.conf kernel "p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1; p $uwbin/vm-data1;  p $uwbin/vm-data1;  p $uwbin/vm-data1;  p $uwbin/vm-data1;  p $uwbin/vm-data1;  p $uwbin/vm-data1; p $uwbin/vm-data1; q"

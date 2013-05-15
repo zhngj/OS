@@ -1,0 +1,51 @@
+Tim Brecht
+Created: Tue Oct 16 09:53:25 EDT 2007
+Last Updated: Sat Nov  6 14:10:24 EDT 2010
+
+NOTE: These scripts use the csh.
+NOTE: They require the PATH in your .cshrc
+NOTE: to be set correctly so that commands like
+NOTE: sys161 will be found.
+
+
+There are 3 main high level sets of tests to run.
+Each of these calls separate tests.
+See the source for each of the high-level tests
+to see how the sub-scripts are called.
+
+The examples below assume you are using csh or tcsh as your shell.
+
+run-batch
+   - Runs a bunch of tests in batch mode.
+   - Probably best to run as:
+     ./run-batch |& tee out.1
+   - This test saves testing bad parameters to
+     system calls to the very end 
+     (the tests are called badcalls).
+     If you want to have the badcalls tests
+     happen with the system calls being tested
+     you can use the "inline" option:
+     ./run-batch inline |& tee out.1
+
+test-rw-con
+   - runs tests that require console input so we
+     must run interactively.
+   - most programs echo input until q is typed
+   - Run as:
+    ./test-rw-con |& tee out.2
+
+test-forkbomb
+   - runs an infinite loop forking new threads
+   - must run interactively
+   - Run as:
+    ./test-forkbomb |& tee out.3
+    System shouldn't crash, so 
+    after waiting sufficiently long 15-30 seconds type control-c
+    If system crashes before you type control-c there is likely
+    a kernel bug/problem.
+
+----------------------------------------------------------------------
+test-a1 : currently isn't used/called but you can try it if you like
+          This tests the synchronization code that was added for A1.
+
+----------------------------------------------------------------------

@@ -1,0 +1,8 @@
+#!/bin/csh
+
+# Works
+echo "Hello farmer" > catfile
+echo "" >> catfile
+sys161 kernel "p testbin/farm;q"
+sys161 kernel "p testbin/farm;q"
+sys161 kernel "p testbin/farm;q"

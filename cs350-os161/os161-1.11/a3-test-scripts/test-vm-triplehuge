@@ -1,0 +1,9 @@
+#!/bin/csh
+
+# Multiple processes
+# Declares an array of 512 x 4092 ints but then only
+# touches 512 pages (2 MB) for each of 3 processes = 6 MB
+# Forces lots of tlb faults.
+sys161 kernel "p testbin/triplehuge;q"
+
+

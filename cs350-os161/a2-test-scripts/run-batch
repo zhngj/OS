@@ -1,0 +1,81 @@
+#!/bin/csh
+
+set usage = "Usage: $0 [inline]"
+set version = "Version 0.3"
+
+# In batch mode run a bunch of tests and strip
+# off a bunch of the sys161 and OS/161 output
+# that isn't relevant and makes it harder to find
+# the desired output.
+
+
+# This is a list of the test programs to run.
+# Note that the file a2-setup can be used to
+# control weather lseek tests get run or not.
+# It is done that way because several tests
+# contain lseek calls and they are avoided
+# in those individual tests.
+set oldlist = (_exit args exceptions execv fork \
+             kill-curthread files lseek open-close \
+             read-file waitpid write-con write-file)
+
+# New order
+# lseek hasn't been used for a few years so it is left off.
+set list = (files read-file write-file \
+            args execv fork \
+            _exit waitpid exceptions )
+
+
+set STRIP = ./strip-text
+set inline_badcalls = 0
+
+echo "RUNNING $0 : $version"
+
+if ($#argv != 0 && $#argv != 1) then
+    echo "$usage"
+    exit 1
+endif
+
+if ($#argv == 1) then
+  if ($1 == "inline") then
+    echo "Doing badcalls inline"
+    set inline_badcalls = 1
+  else 
+    echo "$usage"
+    exit 1
+  endif
+endif
+
+foreach i ($list) 
+  echo "---------------------------------------------------------------"
+  echo "RUNNING test-$i TESTS"
+  ./test-$i |& $STRIP
+  if ($inline_badcalls == 1) then
+    # If there is a badcalls test for this functionality call it now
+    if ( -e ./test-badcalls-$i ) then
+      echo "RUNNING test-badcalls-$i TESTS"
+	    ./test-badcalls-$i |& $STRIP
+    else 
+      # echo "NO BADCALLS TEST FOR $i"
+    endif
+  endif
+  echo ""
+end
+
+# We haven't done the badcalls inline so do them now at the end
+if ($inline_badcalls == 0) then
+  echo "RUNNING ALL BADCALLS TESTS NOW"
+	foreach i ($list)
+    if ( -e ./test-badcalls-$i ) then
+      echo "---------------------------------------------------------------"
+      echo "RUNNING test-badcalls-$i TESTS"
+	    ./test-badcalls-$i |& $STRIP
+    else 
+      # echo "NO BADCALLS TEST FOR $i"
+    endif
+    echo ""
+  end
+endif
+
+exit 0
+
